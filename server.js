@@ -2,6 +2,8 @@ const express = require('express');
 const fs = require('fs');
 const hbs = require('hbs');
 
+//SETTING THE PORT VIA THE ENVIRONMENT VARIABLE
+const port = process.env.PORT || 3000;
 
 var app = express();
 
@@ -81,8 +83,8 @@ app.use(express.static(__dirname + '/public')); //__dirnmae is a var that contai
 //===========
 
 //to make the app start listening we have to call the listen function and doing so will bind our app to a port in our machine
-app.listen(3000, () => {
-   console.log('server is up on port 3000');
+app.listen(port, () => {
+   console.log(`server is up on port ${port}`);
  }); //this function takes two parameters the fist is the port where to listen and the second is a callback function that specifie what to do when the server is up
 
 //tampleting engine : handlebar (it's a view engine for express)
